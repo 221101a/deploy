@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>enter details to complete profile</h1>
+    <form method="post" action="{% url 'user:profile_save' %}">
+        {% csrf_token %}
+        fathers_name=<input type="text" name="fathers_name">
+        mothers_name=<input type="text" name="mothers_name">
+        email=<input type="text" name="email">
+        phone=<input type="text" name="phone">
+        <input type="submit" value="submit">
+    </form>
+</body>
+</html>

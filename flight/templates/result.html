@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Available Flights</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+
+      .flight-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      .flight {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin: 10px;
+        padding: 20px;
+        width: calc(50% - 40px);
+        box-shadow: 0 0 10px #ccc;
+      }
+
+      .flight h2 {
+        color: #0275d8;
+      }
+
+      .flight p {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+
+      button {
+        background-color: #0275d8;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      button:hover {
+        background-color: #0256b8;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Available Flights for Booking</h1>
+      <div class="flight-list">
+        {% for ele in flight %}
+        <div class="flight">
+          <h2>{{ele.flight}}</h2>
+          <p>Date:{{ele.date}} </p>
+          <p>From {{from_from}} &nbsp; To {{to_to}}</p>
+          <button>Booking Available</button>
+        </div>
+        {% endfor %}
+      </div>
+      <form action="{% url 'user:result2' %}" method="post">
+        {% csrf_token %}
+        <select name="flight">
+            {% for ele in flight %}
+            <option value="{{ele.flight}}">{{ele.flight}}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="submit">
+    </form>
+    </div>
+  </body>
+</html>
+
+<h1>available flights</h1>
+    

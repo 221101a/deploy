@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>user homepage</h1>
+    {% for data in user_data %}
+    <h3>{{data.username}}</h3>
+    <h3>{{data.password}}</h3>
+    <h3>{{data.name}}</h3>
+    {% endfor %}
+    {% for data in profile_data %}
+    <h3>{{data.fathers_name}}</h3>
+    <h3>{{data.mothers_name}}</h3>
+    <h3>{{data.email}}</h3>
+    <h3>{{data.phone}}</h3>
+    {% endfor %}
+    <a href="{% url 'user:booking' %}">click here to book</a><br>
+    <a href="{% url 'user:profile' %}">update profile</a><br>
+    <a href="{% url 'user:logout' %}">logout</a>
+</body>
+</html>

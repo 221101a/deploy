@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flight Ticket Booking</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      .container {
+        width: 80%;
+        margin: 20px auto;
+        background-color: #8ec5ef;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        background-size: 100% auto;
+      }
+      h1 {
+        text-align: center;
+      }
+      form {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      .form-group {
+        margin-bottom: 20px;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      select,
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+      input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #0056b3;
+      }
+      #icon {
+        background-color: hsl(147, 96%, 47%);
+        color: #0d0d0d;
+        border: 3px soid grey;
+        padding: 10px 20px;
+        border-radius: 75px;
+        font-weight: 525;
+        text-align: center;
+        float: right;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="icon">
+        <p>HawaiYatra.com</p>
+      </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <h1>Hello!</h1>
+      <h1>Book your flight with us within few minutes.</h1>
+      <form action="{% url 'user:result' %}" method="post">
+        <div class="form-group">
+          <label for="departure">From:</label>
+          <select id="departure" name="from_from" required>
+            <option value="">Select City</option>
+            <option value="up">up</option>
+            <option value="MUMBAI">MUMBAI</option>
+            <option value="KOLKATA">KOLKATA</option>
+            <option value="BANGALORE">BANGALORE</option>
+            <option value="CHENNAI">CHENNAI</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="arrival">To:</label>
+          <select id="arrival" name="to_to" required>
+            <option value="">Select City</option>
+            <option value="bihar">bihar</option>
+            <option value="MUMBAI">MUMBAI</option>
+            <option value="KOLKATA">KOLKATA</option>
+            <option value="BANGALORE">BANGALORE</option>
+            <option value="CHENNAI">CHENNAI</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="count">Number of travellers:</label>
+          <select id="count" name="count" required>
+            <option value="">Select number of travellers</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="cabin">Choose cabin class:</label>
+          <select id="cabin" name="flight_class" required>
+            <option value="">Select cabin class</option>
+            <option value="Economy">Economy</option>
+            <option value="Premium economy">Premium economy</option>
+            <option value="Business">Business</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="date">Date of Travel:</label>
+          <input type="text" id="date" name="date" required />
+        </div>
+        <div class="form-group">
+          <input type="submit" value="show flights" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
